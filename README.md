@@ -1,1 +1,1 @@
-# strava-challenges
+# strava-challenge-hunter
