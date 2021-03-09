@@ -42,11 +42,10 @@ $numbers | ForEach-Object -Parallel {
 		Continue
 	}
 
-	if (!$data.ended -and $resp.Content -like ("*Qualifying Activities:*{0}*" -f $Activity)) { 
+	if (!$data.ended -and $data.sections.Where( { $_.title -eq "Details & Eligibility" })[0].content.qualifyingActivities.activityType -contains "Ride") { 
 		[PSCustomObject]@{
 			ChallengeID = $_
 			URL         = ("https://www.strava.com/challenges/{0}" -f $_)
-			Cycling     = $resp.Content -like ("*Qualifying Activities:*{0}*" -f $Activity)
 			Ended       = $data.ended
 			Joined      = $data.joined
 			Completed   = $data.completed
