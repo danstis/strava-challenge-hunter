@@ -11,7 +11,7 @@ param (
 	[System.Management.Automation.PSCredential]
 	[System.Management.Automation.Credential()]
 	$Credential = (Get-Credential -Message "Credentials for your Strava account"),
-	# Qualifying Activities is a filter string for the list of activities. Defaults to Ride
+	# Activities is a filter string for the list of activities. Defaults to Ride
 	[Parameter(Mandatory = $false)]
 	[string] $Activity = "Ride"
 )
