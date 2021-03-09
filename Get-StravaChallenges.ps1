@@ -42,7 +42,7 @@ $numbers | ForEach-Object -Parallel {
 		Continue
 	}
 
-	if (!$data.ended -and $data.sections.Where( { $_.title -eq "Details & Eligibility" })[0].content.qualifyingActivities.activityType -contains $Activity) { 
+	if (!$data.ended -and $data.sections.Where( { $_.title -eq "Details & Eligibility" })[0].content.qualifyingActivities.activityType -contains $using:Activity) { 
 		[PSCustomObject]@{
 			ChallengeID = $_
 			URL         = ("https://www.strava.com/challenges/{0}" -f $_)
